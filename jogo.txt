@@ -1,0 +1,69 @@
+100 -1 R  Ao caminhar, você vê um gato desconfiado caminhando... Deseja se unir a ele e desvendar uma lenda do País das Maravilhas?
+070 100 E Você continua andando e encontra uma trilha de fumaça colorida. Deseja seguir?
+230 100 D Gato cheshire te ajuda a encontrar o chapeleiro. Deseja tomar chá?
+030 070 E Você encontra o castelo Rainha Vermelha Deseja se apresentar a ela?
+085 070 D Um lagarto aparece e te propoe uma charada para responder, você aceita?
+125 230 E O chapeleiro se chateia e te expulsa da sua casaAo continuar caminhando com o gato e encontra os gemeos. Deseja ouvir a história deles?. 
+240 230 D O chapeleiro propoe caminhar pela estrada das rosas. Pretende segui-lo?
+005 030 E  rei apontou para você  e ordenou  que você saia do país das maravilhas. Nessa hora, você acordou e se esqueceu de tudo.
+055 030 D Rainha te convida para um jogo de cartas, mas as cartas são vivas. Aceita jogar?
+075 085 E Ele te expulsa e assopra a fumaça em vocẽ. Você acorda e não se lembra de nada que aconteceu.
+090 085 D Você acertou a charada! Deseja descobrir seu destino?
+115 125 E Eles começam a brigar(culpar um ao outro) na sua frente. Deseja separá-los?
+195 125 D  Os irmaos se tornam fieis a você. Eles te garantem que  vai ficar em segurança. Confiar neles?
+230 240 E Você vai andando em outra direção  e fica presa na floresta!
+250 240 D Durante a caminhada, encontrou um frasco de bebida escrito “beba-me”.Deseja beber?
+040 055 E A rainha ordena que você deve se depor! O gato  cheshire aparece discretamente e te propoe ajuda. Aceitar?
+060 055 D No ultimo momento, vocẽ percebe que pode deixar a rainha ganhar ou levar o jogo. Deseja agradar a rainha?
+088 090 E O largato descepcionado te faz despertar do seu sonho. 
+098 090 D Você obtem informações privilegiadas e descobre o caminho de volta para casa.
+105 115 E Enquanto eles brigavam você resolve se aventurar sozinha pela floresta e cai em uma areia movediça e não conseuge escapar.
+120 115 D Eles estavam encenando! Depois de te contar isso, te propoem  um caminho escondido.Deseja seguir ? 
+130 195 E os gemeos se chateiam com a sua falta de interesse e a confiaça obtida se torna em uma desconfiança.Percebendo a situação deseja se desculpar ou justificar a sua resposta? 
+197 195 D Você não contava que os gemeos eram muito atrapalhados e sem querer eles te levaram para uma caverna de urso... e digamos que seu fim não foi legal.
+245 250 E O chapeleiro te leva a rainha branca que propoe uma função para voce no pais das maravilhas. Vai aceitar?
+255 250 D Você ficou pequena demais e nao consegue se movimentar pela floresta 
+031 040 E Você não tem nenhuma testemunha de defesa e a rainha ordena: Corte a cabeça!
+045 040 D O gato se transforma no Rei e pede que a Rainha tenha piedade. Deseja implorar pela sua vida?
+058 060 E A rainha com inveja por ter perdido, te expulsa do país das maravilhas para sempre.
+065 060 D A rainha se sente grata e lhe oferece  um caminho seguro para voltar para casa. Deseja segui-lo?
+117 120 E Os gêmeos somem em uma nuvem de confete.No chão, apenas um bilhete:“Às vezes, ignorar o absurdo é a resposta errada.”Você fica perdida.
+123 120 D O gato cheshire reaparece e te oferece um cogumelo brilhante.Deseja aceitar?
+127 130 E Por algum motivo sua resposta causa muita tristeza neles e eles fogem chorando.No fim você caminha sem fim e fica presa neste mundo.
+186 130 D Você justifica que tudo está sendo tão difícil de processar e que falou no impulso e que sera uma honra a historia deles.Com isso os gemeos voltam a ficar contentes e lhe contam a historia e sugerem ir pro castelo da rainha branca .Deseja ir ? 
+243 245 E A rainha branca abre um portal para seu retorno, e você não poderá mais voltar
+248 245 D Parabéns! Agora você se tornou a grande cavalheira da rainha branca! 
+042 045 E As palavras do “Rei” não bastam a Rainha ordena a sua morte.
+048 045 D A rainha resolve te dar uma segunda chance. Deseja obedecer as suas ordens?
+063 065 E A rainha então lhe dá a chave do país das maravilhas e voltar sempre que puder.
+068 065 D A rainha te leva de volta para casa...
+122 123 E Você desaparece em sonho, esquecendo tudo o que viveu aqui.
+124 123 D Você se torna parte do País das Maravilhas para sempre 
+132 186 E Vocês seguem na floresta e encontram uma cabana .Deseja passar a noite nesta cabana?
+190 186 D Vocês chegam ao castelo da rainha branca e ela recepciona bem vocês,conta historias interessantes  e oferece uma estadia temporaria.Deseja aceitar ?
+047 048 E A rainha fica revoltada e resolve te trancar no calabouço até a sua morte.
+050 048 D A rainha então se cansa de você e te deixa em paz. Gostaria de se revoltar contra a rainha?
+131 132 E Vocês caminham pelo escuro e acidentalmente pisam em um cogumelo alucinógeno e seu mental lhe trai.Infelizmente você dorme para sempre tendo alucinações :(
+179 132 D Voces acordam com barulho de coisas quebrando e ao abrir os olhos se deparam com a lebre maluca.Deseja continuar na cabana ?
+188 190 E Você recusa a ajuda da rainha branca e volta a sua aventura isolada até que o exercito da rainha vermelha aparece e te captura e te faz a seguinte pergunta.Deseja servir a rainha vermelha pelo resto da vida ? 
+194 190 D A rainha branca simpatiza com você e te da um espelho que te leva de volta  a realidade.Parabéns Alice você voltou pra casa .
+049 050 E A rainha torna sua vida no palacio um pesadelo até o seu fim.
+052 050 D Você convence os seguidores da rainha a se revoltarem.Deseja  se tornar a lider da dessa revolta?
+150 179 E Por incrivel que pareça tu se sente segura nesta cabana.No entanto, derrepente chega o exercito da rainha má .Deseja se esconder?
+181 179 D Então os gemeos como conheciam a lebre explicam o motivo deles dormirem lá.Então derrepente a lebre joga em você um pergaminho.Deseja abrir?
+187 188 E A rainha te executou.
+189 188 D Você dedicou toda sua vida a rainha e foi infeliz por esse motivo.
+051 052 E A revolta não teve força sufienciente para seguir em frente e a rainha descobre.Você foi executada.
+054 052 D A revolta teve êxito , trouxe o fim de uma era de medo .Parabens você se tornou a nova Rainha do país das maravilhas 
+149 150 E Você foi capturada e a rainha simplesmente te odiou e as ultimas palavras que você escuta é ... CORTEM A CABEÇA!
+177 150 D Você se esconde, mas os gemeos e a lebre são capturados.Deseja tentar intervir ? 
+180 181 E Você não abre o pergaminho e volta a caminhar na  floresta e derrepende um monstro do exercito da rainha surge... e infelizmente você não teve um fim agradavel.
+183 181 D Dentro do pergaminho dizia “Dentro desta floresta há um espelho que pode conceder seu desejo mais oculto “.Deseja procurar pelo espelho?
+170 177 E Você novamente estar sozinha.Deseja encontrar os outros animais que rejeitou no inicio na tentativa de salva-los?
+178 177 D Infelizmente suas ações não foram recompensadas e foi caputarada junto com eles, mas diferente deles a rainha te achou banal demais para merecer seu afeto e te condenou a prisão eterna.
+182 183 E Você caminha pela floresta sem rumo e encontra um labirinto sem fim e infelizmente fica perdida pra sempre.
+184 183 D Você caminha incansavelmente em busca das dicas do pergaminho e o acha e seu desejo de voltar pra casa é realizado parabéns.
+169 170 E Você caminha pela floresta  e derrepente cai em uma armadilha pra ursos.Um buraco cheio de adagas afiadas... Que morte feia 
+174 170 D Você encotra os animais , se preparam  e vão ate o castelo da rainha má em busca deles.Vocês se infiltram fantasiados de soldados e conseguem salva-los da prisão,mas quando estavam saindo observam uma grande orbe vermelha em uma sala exalando poder.Deseja pega-la ? 
+173 174 E Quando estavam saindo foram pegos pelo rei capturados e infelizmente executados á ordem da rainha.
+175 174 D vocês tiram a orbe do seu receptaculo e derrepente os soldados não eram mais controlados pela rainha e
