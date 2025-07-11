@@ -1,7 +1,10 @@
 #include "games.h"
+#include <iostream>
 
 int main() {
     Jogo jogo;
-    jogo.iniciar();
+    jogo.primeiroMenu();
     return 0;
 }
+
+
