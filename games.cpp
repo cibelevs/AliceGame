@@ -149,16 +149,16 @@ void Jogo:: submenuTecnico() {
 
         switch(opcao) {
             case 1:
-                // Código para mostrar lista
+            mostrarListaOriginal();
                 break;
             case 2:
-                // Código para listar árvore
+            listarArvoreEmOrdem();
                 break;
             case 3:
-                // Código para buscar jogador por nome
+             buscarJogadorPorNome();
                 break;
             case 4:
-                // Código para buscar jogador por número de jogos
+             buscarJogadorPorJogos();
                 break;
             case 5:
                 std::cout << "Voltando...\n";
@@ -266,4 +266,85 @@ Score* ListaScore::buscarPorJogos(int jogos) const {
         atual = atual->prox;
     }
     return nullptr;
+}
+
+// ==========INFORMAÇÕES TÉCNICAS==========
+
+void Jogo::mostrarListaOriginal() {
+    Lista list;
+    list.lerArquivoLista("jogo.txt");
+    Texto* atual = list.getInicio();
+    std::cout << "\n--- LISTA ORIGINAL ---\n";
+    while (atual) {
+        std::cout << "ID: " << atual->id 
+                  << " | Pai: " << atual->idPai 
+                  << " | Lado: " << atual->lado 
+                  << " | Texto: " << atual->text << "\n";
+        atual = atual->prox;
+    }
+}
+
+
+
+
+
+void Arvore::imprimirEmOrdemRecursivo(Nodo* nodo) {
+    if (nodo == nullptr) return;
+    imprimirEmOrdemRecursivo(nodo->esq);
+    std::cout << "ID: " << nodo->v << " | Texto: " << nodo->text << "\n";
+    imprimirEmOrdemRecursivo(nodo->dir);
+}
+
+void Arvore::imprimirEmOrdem() {
+    std::cout << "\n--- ARVORE EM ORDEM ---\n";
+    imprimirEmOrdemRecursivo(raiz);
+}
+
+void Jogo::listarArvoreEmOrdem() {
+    // Usa a mesma árvore que já existe no jogo
+    Lista list;
+    list.lerArquivoLista("jogo.txt");
+    
+    Arvore tree;  // Esta é a árvore que você já tem
+    tree.construirArvore(list.getInicio());
+    
+    // Chama o método da árvore
+    tree.imprimirEmOrdem();
+}
+
+void Jogo::buscarJogadorPorNome() {
+    std::string nome;
+    std::cout << "Digite o nome do jogador: ";
+    std::cin.ignore(); // Limpa o buffer antes de ler linha completa
+    std::getline(std::cin, nome); // Permite nomes com espaços
+    
+    Score* jogador = placar.buscarPorNome(nome);
+    
+    if (jogador) {
+        std::cout << "\n--- JOGADOR ENCONTRADO ---\n"
+                  << "Nome: " << jogador->nome << "\n"
+                  << "Jogos: " << jogador->jogos << "\n"
+                  << "Vitórias: " << jogador->vitorias << "\n"
+                  << "Derrotas: " << jogador->derrotas << "\n";
+    } else {
+        std::cout << "Jogador não encontrado!\n";
+    }
+}
+
+void Jogo::buscarJogadorPorJogos() {
+    int jogos;
+    std::cout << "Digite o número de jogos: ";
+    std::cin >> jogos;
+    
+    Score* jogador = placar.buscarPorJogos(jogos);
+    
+    if (jogador) {
+        std::cout << "\n--- JOGADOR ENCONTRADO ---\n"
+                  << "Nome: " << jogador->nome << "\n"
+                  << "Jogos: " << jogador->jogos << "\n"
+                  << "Vitórias: " << jogador->vitorias << "\n"
+                  << "Derrotas: " << jogador->derrotas << "\n";
+    } else {
+        std::cout << "Nenhum jogador encontrado com " << jogos << " jogos!\n";
+    }
 }
