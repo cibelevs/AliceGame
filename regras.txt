@@ -1,1 +1,10 @@
-historia do jogo...
+Objetivo Principal:
+O jogador deve navegar por uma série de cenários interligados, tomando decisões que o levem ao final bem-sucedido da jornada (vitória). 
+Decisões incorretas resultam em derrota.
+
+O jogador escolhe entre duas opções em cada passo (ex: "Sim/Não", "Esquerda/Direita").
+As escolhas determinam o caminho percorrido na árvore.
+
+Vitória: Chegar a um nó final positivo (ex: "voltou para casa").
+
+Derrota: Chegar a um nó final negativo (ex: "foi foi aprisionada pela rainha ").

@@ -1,1 +1,99 @@
-OLÁ
+Alice é uma menina curiosa que, em um dia comum passeando ao redor da sua vila, 
+avistou um coelho branco com uma bússola gigante pendurada no pescoço correndo em direção aos arbustos. 
+Intrigada com aquela cena, Alice decidiu segui-lo — correndo a toda velocidade para não perdê-lo de vista.
+No entanto, ao atravessar a vegetação, Alice tropeça e acaba caindo em uma toca profunda... a toca do coelho!
+Ao cair, ela se vê em um universo completamente diferente: um mundo estranho, no qual tudo acontece ao contrario,  
+repleto de criaturas excêntricas e personagens duvidosos. Nada ali parece seguir a lógica do mundo real. 
+Agora, presa nesse universo, Alice precisa explorar reinos misteriosos, resolver enigmas e enfrentar desafios impostos 
+por figuras enigmáticas. Sua missão: encontrar o caminho de volta para casa — ou talvez descobrir outro propósito para sua jornada.
+Neste jogo, você controla as decisões de Alice, se passando por ela. Cada decisão pode aproximá-la da saída... 
+ou mergulhá-la ainda mais fundo nesse universo caótico. Sua missão é ajudá-la a voltar para casa ou tornar esse país seu lar.
+
+  Personagens: 
+
+Alice
+
+Imagine uma menina de sete anos com olhos brilhantes de curiosidade, cabelos castanhos e um vestidinho azul que parece dançar ao vento. 
+Ela é a porta de entrada para este mundo mágico, uma inteligentíssima pequena cientista que questiona tudo e ama resolver enigmas .
+ Como uma flor prestes a desabrochar, ela representa a pura essência da imaginação infantil, sempre pronta para descobrir novos mundos.
+
+Personalidade:  Curiosa, Determinada e Justa
+
+O Gato de Cheshire 
+
+
+Um gato majestoso com um sorriso que ilumina a escuridão! Suas presas brancas cintilam como diamantes, e seus olhos parecem guardar segredos milenares. 
+Com o poder de aparecer e desaparecer como fumaça mágica, ele serve como um guia místico, sempre pronto a oferecer conselhos enigmáticos com seu sorriso inconfundível
+           
+Personalidade: Misterioso ,Sábio e Enigmático
+
+O Coelho Branco 
+
+Um coelhinho distinto, vestindo um elegante colete vermelho e carregando um relógio de bolso que parece pulsar com urgência.
+ Seus bigodes tremem de ansiedade enquanto ele corre apressado, sempre repetindo "estou atrasado!" com uma voz que mistura pânico e formalidade .
+ É como se o próprio tempo tivesse ganhado pernas e começado a correr desesperadamente.
+
+Personalidade:  Apressado, Nervoso  e Formal
+
+
+A Rainha de Copas  
+
+Uma figura imponente com um vestido vermelho flamejante que parece ter vida própria, inflando-se como uma vela ao vento.
+ Sua coroa oscila perigosamente sobre seus cachos espetados, e seu grito de "Cortem-lhes as cabeças!" ecoa pelo reino como um trovão . 
+Cada passo seu faz tremer o chão, como se a própria terra temesse sua ira majestosa.
+
+
+Personalidade:Autoritária ,Explosiva e Dominadora  
+
+Rainha Branca
+
+Com seu visual etéreo e mãos sempre graciosamente suspensas, a Rainha Branca parece saída de um conto de fadas... com um toque excêntrico! 
+Ela fala de forma calma, quase sussurrada, e segue um código de conduta que a impede de causar qualquer mal — mesmo quando está cercada pelo caos.
+ Apesar da aparência frágil, não se engane: ela é inteligente, estrategista e tem um senso de humor peculiar.
+
+Personalidade: Elegante, pacífica, excêntrica
+
+ Tweedledee e Tweedledum - Os Gêmeos
+
+Os gêmeos redondos e atrapalhados são praticamente inseparáveis — tanto que parece que um não conseguiria sobreviver sem o outro! 
+Falam de forma confusa, discutem entre si o tempo todo e vivem se metendo em encrenca.
+ Apesar da aparência caricata e do jeito bobo, eles têm momentos de grande lealdade e coragem.
+
+Personalidade:Engraçados, confusos, leais
+
+Bayard - a ratinha 
+
+
+ Ela é pequena no tamanho, mas gigante na coragem! Extremamente leal à Rainha Branca e a Alice, 
+Mallymkun é uma guerreira destemida que, inclusive, arranca o olho da criatura Bandersnatch sem nem pestanejar. 
+Não subestime essa ratinha — ela é feroz, afiada (literalmente) e cheia de atitude!
+
+Personalidade:Corajosa,leal e impulsiva
+
+
+O Chapeleiro Louco 
+
+
+Um cavalheiro excêntrico com chapéu inclinado em um ângulo impossível e um sorriso que rivaliza com o do Gato de Cheshire.
+ Seus olhos brilham com um louco brilho criativo enquanto ele celebra eternos desaniversários, servindo chá em xícaras que parecem dançar sozinhas 
+. Seu riso é contagioso, espalhando-se como bolhas de champanhe mágico.
+
+
+Personalidade:   Alegre,Excêntrico e Festivo
+
+A Lebre de Março
+
+Um coelho esguio com olhos saltados e um sorriso malicioso, pulando de um lado para o outro como se estivesse sobre molas invisíveis. 
+Seus movimentos são tão rápidos que parece deixar traços de luz no ar, criando um espetáculo de pura energia contagiante.
+ É como se ele tivesse engolido um raio de sol e agora estivesse tentando libertar toda essa luz em movimentos frenéticos.
+
+Personalidade:  Energético ,Errático e Caótico
+
+A Lagarta
+
+
+Uma criatura imponente com o corpo cintilante como jade polido, sentada majestosamente sobre um cogumelo gigante. 
+Seu narguilé libera fumaça colorida que forma padrões místicos no ar, enquanto seus olhos antigos contemplam segredos que poucos podem imaginar.
+ Cada palavra sua é uma gota de sabedoria que cai suavemente como orvalho mágico.
+
+Personalidade:Sábio Calmo Místico  
