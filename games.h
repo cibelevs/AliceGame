@@ -47,10 +47,12 @@ class Arvore {
 private:
     Nodo* raiz;
     Nodo* buscarNodo(Nodo* r, int id);
+    void imprimirEmOrdemRecursivo(Nodo* nodo);
 
 public:
     Arvore();
     void construirArvore(Texto* lista);
+    void imprimirEmOrdem();
     Nodo* getRaiz() const;
 };
 
@@ -73,6 +75,8 @@ class Jogo {
 private:
     ListaScore placar;
 
+      
+
 public:
     void iniciar();
     void jogar(Nodo* atual);
@@ -80,6 +84,10 @@ public:
     void segundoMenu();
     void primeiroMenu();
     void submenuTecnico();
+    void mostrarListaOriginal();
+    void listarArvoreEmOrdem();
+    void buscarJogadorPorNome();
+    void buscarJogadorPorJogos();
     ListaScore& getPlacar() { return placar; }
 };
 
