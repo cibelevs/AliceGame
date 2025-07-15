@@ -88,6 +88,7 @@ public:
     void listarArvoreEmOrdem();
     void buscarJogadorPorNome();
     void buscarJogadorPorJogos();
+    void imprimeJogador(Score * jogador);
     ListaScore& getPlacar() { return placar; }
 };
 

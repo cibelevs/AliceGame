@@ -1,10 +1,10 @@
 Objetivo Principal:
-O jogador deve navegar por uma série de cenários interligados, tomando decisões que o levem ao final bem-sucedido da jornada (vitória). 
-Decisões incorretas resultam em derrota.
+O jogador deve navegar por uma serie de cenarios interligados, tomando decisoes que o levem ao final bem-sucedido da jornada (vitoria).
+Decisoes incorretas resultam em derrota.
 
-O jogador escolhe entre duas opções em cada passo (ex: "Sim/Não", "Esquerda/Direita").
-As escolhas determinam o caminho percorrido na árvore.
+O jogador escolhe entre duas opcoes em cada passo (ex: "Sim/Nao", "Esquerda/Direita").
+As escolhas determinam o caminho percorrido na arvore.
 
-Vitória: Chegar a um nó final positivo (ex: "voltou para casa").
+Vitoria: Chegar a um no final positivo (ex: "voltou para casa").
 
-Derrota: Chegar a um nó final negativo (ex: "foi foi aprisionada pela rainha ").
+Derrota: Chegar a um no final negativo (ex: "foi aprisionada pela rainha").
