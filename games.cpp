@@ -252,7 +252,7 @@ void ListaScore::listar() const {
     while (atual) {
         std::cout << "Nome: " << atual->nome
                   << " | Jogos: " << atual->jogos
-                  << " | Vitórias: " << atual->vitorias
+                  << " | Vitorias: " << atual->vitorias
                   << " | Derrotas: " << atual->derrotas << '\n';
         atual = atual->prox;
     }
