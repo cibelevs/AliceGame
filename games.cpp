@@ -4,6 +4,9 @@
 #include <string>
 #include <sstream>
 #include <cstdio>    // sscanf
+#include <algorithm>  // para o std::transform
+#include <cctype>     //  para o ::tolower
+
 
 // ========== LISTA ==========
 
@@ -89,14 +92,20 @@ void Jogo::jogar(Nodo* atual) {
         std::cout << "\nDigite seu nome: ";
         std::cin >> nome;
 
-        // Pergunta se venceu ou perdeu (você pode adaptar a pergunta)
-        char resultado;
-        std::cout << "Você venceu? (s/n): ";
-        std::cin >> resultado;
-        bool venceu = (resultado == 's' || resultado == 'S');
+        // se venceu ou perdeu automaticamente
+        std::string textoFinal = atual->text;
+        std::transform(textoFinal.begin(), textoFinal.end(), textoFinal.begin(), ::tolower); // deixa tudo minúsculo
 
-        // Atualiza o placar
-        placar.adicionarOuAtualizar(nome, venceu);
+        bool venceu = textoFinal.find("#venceu") != std::string::npos;
+        bool perdeu = textoFinal.find("#perdeu") != std::string::npos;
+
+        if (venceu || perdeu) {
+            placar.adicionarOuAtualizar(nome, venceu); 
+        } 
+        else {
+            std::cout << "Nao foi possivel determinar se venceu ou perdeu.\n";
+        }
+        
     } else {
         std::cout << "\nAlgo deu errado. Caminho invalido.\n";
     }
@@ -284,10 +293,6 @@ void Jogo::mostrarListaOriginal() {
     }
 }
 
-
-
-
-
 void Arvore::imprimirEmOrdemRecursivo(Nodo* nodo) {
     if (nodo == nullptr) return;
     imprimirEmOrdemRecursivo(nodo->esq);
@@ -312,6 +317,16 @@ void Jogo::listarArvoreEmOrdem() {
     tree.imprimirEmOrdem();
 }
 
+void Jogo::imprimeJogador(Score * jogador){
+    if (jogador != nullptr){
+        std::cout << "\n--- JOGADOR ENCONTRADO ---\n"
+                  << "Nome: " << jogador->nome << "\n"
+                  << "Jogos: " << jogador->jogos << "\n"
+                  << "Vitorias: " << jogador->vitorias << "\n"
+                  << "Derrotas: " << jogador->derrotas << "\n";
+    }
+}
+
 void Jogo::buscarJogadorPorNome() {
     std::string nome;
     std::cout << "Digite o nome do jogador: ";
@@ -321,11 +336,7 @@ void Jogo::buscarJogadorPorNome() {
     Score* jogador = placar.buscarPorNome(nome);
     
     if (jogador) {
-        std::cout << "\n--- JOGADOR ENCONTRADO ---\n"
-                  << "Nome: " << jogador->nome << "\n"
-                  << "Jogos: " << jogador->jogos << "\n"
-                  << "Vitórias: " << jogador->vitorias << "\n"
-                  << "Derrotas: " << jogador->derrotas << "\n";
+        imprimeJogador(jogador);
     } else {
         std::cout << "Jogador não encontrado!\n";
     }
@@ -333,17 +344,13 @@ void Jogo::buscarJogadorPorNome() {
 
 void Jogo::buscarJogadorPorJogos() {
     int jogos;
-    std::cout << "Digite o número de jogos: ";
+    std::cout << "Digite o numero de jogos: ";
     std::cin >> jogos;
     
     Score* jogador = placar.buscarPorJogos(jogos);
     
     if (jogador) {
-        std::cout << "\n--- JOGADOR ENCONTRADO ---\n"
-                  << "Nome: " << jogador->nome << "\n"
-                  << "Jogos: " << jogador->jogos << "\n"
-                  << "Vitórias: " << jogador->vitorias << "\n"
-                  << "Derrotas: " << jogador->derrotas << "\n";
+        imprimeJogador(jogador);
     } else {
         std::cout << "Nenhum jogador encontrado com " << jogos << " jogos!\n";
     }
