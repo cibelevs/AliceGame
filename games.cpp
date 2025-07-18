@@ -3,6 +3,7 @@
 #include <fstream>   // para std::ifstream
 #include <string>
 #include <sstream>
+#include <limits>
 #include <cstdio>    // sscanf
 #include <algorithm>  // para o std::transform
 #include <cctype>     //  para o ::tolower
@@ -71,18 +72,43 @@ void Arvore::construirArvore(Texto* lista) {
     }
 }
 
+bool entradaInvalida() {
+    if (std::cin.fail()) {
+        std::cin.clear(); // limpa o estado de erro
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // descarta o restante da linha
+        std::cout << "Entrada invalida! Digite um numero.\n";
+        return true;
+    }
+    return false;
+}
+
+
 Nodo* Arvore::getRaiz() const { return raiz; }
 
 // ========== JOGO ==========
 
 void Jogo::jogar(Nodo* atual) {
     while (atual && (atual->esq || atual->dir)) {
-        std::cout << "\n" << atual->text << "\n(s para SIM, n para NAO): ";
+        std::cout << "\n" << atual->text << "\n(Digite 's' para SIM, 'n' para NAO, e 'e' para encerrar a sua jornada): ";
         char op; std::cin >> op;
 
-        if (op == 's' || op == 'S')      atual = atual->dir;
-        else if (op == 'n' || op == 'N') atual = atual->esq;
-        else  std::cout << "Opcao invalida!\n";
+       if (op == 's' || op == 'S') {
+            atual = atual->dir;
+        } else if (op == 'n' || op == 'N') {
+            atual = atual->esq;
+        } else if (op == 'e' || op == 'E') {
+            std::string nome;
+            std::cout << "\nVoce desistiu da jornada. Sera registrado como derrota.\n";
+            std::cout << "Digite seu nome: ";
+            std::cin.ignore();
+            std::getline(std::cin, nome);
+
+            placar.adicionarOuAtualizar(nome, false); // derrota
+            std::cout << "\nEncerrando a jornada...\n";
+            return;
+        } else {
+            std::cout << "Opcao invalida!\n";
+        }
     }
 
     if (atual) {
@@ -107,21 +133,23 @@ void Jogo::jogar(Nodo* atual) {
         }
         
     } else {
-        std::cout << "\nAlgo deu errado. Caminho invalido.\n";
+        std::cout << "\n Opção invalida!\n";
     }
 }
 
 void Jogo::primeiroMenu() {
     int op;
     do {
-        std::cout << "\nBem-vindo ao País das Maravilhas!";
-        std::cout << "\n1 - Conhecer a história do jogo";
+        std::cout << "\nBem-vindo ao Pais das Maravilhas!";
+        std::cout << "\n1 - Conhecer a historia do jogo";
         std::cout << "\n2 - Regras do jogo";
         std::cout << "\n3 - Verificar o Score do jogo";
         std::cout << "\n4 - Jogar";
         std::cout << "\n-1 - Sair";
         std::cout << "\nEscolha: ";
         std::cin >> op;
+
+        if (entradaInvalida()) continue;
 
         switch (op) {
             case 1:
@@ -142,6 +170,7 @@ void Jogo::primeiroMenu() {
                 break;
             default:
                 std::cout << "Opcao invalida!\n";
+                break;
         }
     } while (op != -1);
 }
@@ -149,12 +178,13 @@ void Jogo::primeiroMenu() {
 void Jogo:: submenuTecnico() {
     int opcao;
     do {
-        std::cout << "\n1 - Mostrar lista que criou a árvore"
-                  << "\n2 - Listar árvore em ordem"
+        std::cout << "\n1 - Mostrar lista que criou a arvore"
+                  << "\n2 - Listar arvore em ordem"
                   << "\n3 - Buscar jogador por nome"
                   << "\n4 - Buscar jogador por número de jogos"
                   << "\n5 - Voltar\nEscolha: ";
         std::cin >> opcao;
+        if (entradaInvalida()) continue;
 
         switch(opcao) {
             case 1:
@@ -174,6 +204,7 @@ void Jogo:: submenuTecnico() {
                 break;
             default:
                 std::cout << "Opcao invalida!\n";
+                break;
         }
     } while(opcao != 5);
 }
@@ -183,10 +214,11 @@ void Jogo::segundoMenu() {
     int opcao;
     do {
         std::cout << "\n1 - Jogar novamente";
-        std::cout << "\n2 - Informações técnicas";
+        std::cout << "\n2 - Informações tecnicas";
         std::cout << "\n3 - Sair";
         std::cout << "\nEscolha: ";
         std::cin >> opcao;
+        if (entradaInvalida()) continue;
 
         switch (opcao) {
             case 1:
@@ -200,6 +232,7 @@ void Jogo::segundoMenu() {
                 break;
             default:
                 std::cout << "Opcao invalida!\n";
+                break;
         }
     } while (opcao != 3);
 }
@@ -247,7 +280,7 @@ void ListaScore::adicionarOuAtualizar(const std::string& nome, bool venceu) {
 }
 
 void ListaScore::listar() const {
-    std::cout << "\n--- SCORE ---\n";
+    std::cout << "\n**** SCORE *****\n";
     Score* atual = inicio;
     while (atual) {
         std::cout << "Nome: " << atual->nome
