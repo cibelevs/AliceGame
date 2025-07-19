@@ -139,14 +139,28 @@ void Jogo::jogar(Nodo* atual) {
 
 void Jogo::primeiroMenu() {
     int op;
+    const std::string RESET = "\033[0m";
+    const std::string AZUL = "\033[34m";
+    const std::string VERDE = "\033[32m";
+    const std::string AMARELO = "\033[33m";
+    const std::string VERMELHO = "\033[31m";
     do {
-        std::cout << "\nBem-vindo ao Pais das Maravilhas!";
-        std::cout << "\n1 - Conhecer a historia do jogo";
-        std::cout << "\n2 - Regras do jogo";
-        std::cout << "\n3 - Verificar o Score do jogo";
-        std::cout << "\n4 - Jogar";
-        std::cout << "\n-1 - Sair";
-        std::cout << "\nEscolha: ";
+
+
+         // Desenho de flor decorativa
+      
+        std::cout << "\n" << AMARELO << "================================================"       << RESET << "\n";
+        std::cout << AZUL << "       ★ Bem-vindo ao Pais das Maravilhas ★ " << RESET <<       "\n";
+        std::cout << AMARELO         << "================================================"        << RESET << "\n\n";
+ 
+
+
+
+        std::cout << VERDE << " 1 - " << RESET << "Conhecer a historia do jogo\n";
+        std::cout << VERDE << " 2 - " << RESET << "Regras do jogo\n";
+        std::cout << VERDE << " 3 - " << RESET << "Verificar o Score do jogo\n";
+        std::cout << VERDE << " 4 - " << RESET << "Jogar\n";
+        std::cout << VERMELHO <<"-1 - " << RESET << "Sair\n" << RESET;
         std::cin >> op;
 
         if (entradaInvalida()) continue;
@@ -177,12 +191,16 @@ void Jogo::primeiroMenu() {
 
 void Jogo:: submenuTecnico() {
     int opcao;
+
+    const std::string RESET = "\033[0m";
+    const std::string VERDE = "\033[32m";
+    const std::string VERMELHO = "\033[31m";
     do {
-        std::cout << "\n1 - Mostrar lista que criou a arvore"
-                  << "\n2 - Listar arvore em ordem"
-                  << "\n3 - Buscar jogador por nome"
-                  << "\n4 - Buscar jogador por número de jogos"
-                  << "\n5 - Voltar\nEscolha: ";
+        std::cout << VERDE << "1- " << RESET << " Mostrar lista que criou a arvore\n";
+        std::cout << VERDE << "2- " << RESET << " Listar arvore em ordem\n";
+        std::cout << VERDE << "3- " << RESET << "-Buscar jogador por nome\n";
+        std::cout << VERDE << "4- " << RESET << " Buscar jogador por número de jogos\n";
+        std::cout << VERMELHO << "5- " << RESET << " Voltar\nEscolha: \n" << RESET;;
         std::cin >> opcao;
         if (entradaInvalida()) continue;
 
@@ -212,10 +230,13 @@ void Jogo:: submenuTecnico() {
 
 void Jogo::segundoMenu() {
     int opcao;
+    const std::string RESET = "\033[0m";
+    const std::string VERDE = "\033[32m";
+    const std::string VERMELHO = "\033[31m";
     do {
-        std::cout << "\n1 - Jogar novamente";
-        std::cout << "\n2 - Informações tecnicas";
-        std::cout << "\n3 - Sair";
+        std::cout << VERDE << "1 - " << RESET << " Jogar novamente\n";
+        std::cout << VERDE << "2 - " << RESET << " Informações tecnicas\n";
+        std::cout << VERMELHO << "3 - " << RESET<< " Sair" << RESET ;
         std::cout << "\nEscolha: ";
         std::cin >> opcao;
         if (entradaInvalida()) continue;
