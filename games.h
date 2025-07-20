@@ -68,6 +68,8 @@ public:
     void listar() const;
     Score* buscarPorNome(const std::string& nome) const;
     Score* buscarPorJogos(int jogos) const;
+    Score* getInicio() const;
+
 };
 
 // Lógica principal do jogo
@@ -88,6 +90,8 @@ public:
     void listarArvoreEmOrdem();
     void buscarJogadorPorNome();
     void buscarJogadorPorJogos();
+    void buscarMaiorVencedor(Score* inicio);
+    void buscarMaiorPerdedor(Score* inicio);
     void imprimeJogador(Score * jogador);
     ListaScore& getPlacar() { return placar; }
 };
