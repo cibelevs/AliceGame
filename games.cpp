@@ -9,8 +9,8 @@
 #include <cctype>     //  para o ::tolower
 
 
-// ========== LISTA ==========
-
+// ****** LISTA ENCADEADA *********
+// lista que da origem a arvore
 Lista::Lista() : inicio(nullptr), fim(nullptr) {}
 
 bool Lista::listaVazia(const Texto* p) const {
@@ -47,8 +47,8 @@ void Lista::lerArquivoLista(const std::string& nomeArquivo) {
 
 Texto* Lista::getInicio() const { return inicio; }
 
-// ========== ARVORE ==========
-
+// ****** ARVORE DE DECISOES **********
+// busca e criacao da arvore por meio da lista
 Arvore::Arvore() : raiz(nullptr) {}
 
 Nodo* Arvore::buscarNodo(Nodo* r, int id) {
@@ -85,8 +85,8 @@ bool entradaInvalida() {
 
 Nodo* Arvore::getRaiz() const { return raiz; }
 
-// ========== JOGO ==========
-
+// *********** METODOS DO JOGO *************
+// menus e metodo de jogar com inputs do usuario
 void Jogo::jogar(Nodo* atual) {
     while (atual && (atual->esq || atual->dir)) {
         std::cout << "\n" << atual->text << "\n(Digite 's' para SIM, 'n' para NAO, e 'e' para encerrar a sua jornada): ";
@@ -290,7 +290,8 @@ void Jogo::iniciar() {
     jogar(tree.getRaiz());
 }
 
-// ========== SCORE ==========
+// *********** SCORE ***************
+//metodos de adicionar ou atualizar score de um jogador e realizar buscas 
 
 ListaScore::ListaScore() : inicio(nullptr), fim(nullptr) {}
 
@@ -343,7 +344,9 @@ Score* ListaScore::buscarPorJogos(int jogos) const {
     return nullptr;
 }
 
-// ==========INFORMAÇÕES TÉCNICAS==========
+//******* SUBMENU INFORMACOES TECNICAS ********* 
+//mostrar lista original, apresentar arvore em ordem
+
 
 void Jogo::mostrarListaOriginal() {
     Lista list;
@@ -372,14 +375,13 @@ void Arvore::imprimirEmOrdem() {
 }
 
 void Jogo::listarArvoreEmOrdem() {
-    // Usa a mesma árvore que já existe no jogo
+    // mesma árvore que já existe no jogo
     Lista list;
     list.lerArquivoLista("jogo.txt");
     
-    Arvore tree;  // Esta é a árvore que você já tem
+    Arvore tree;  
     tree.construirArvore(list.getInicio());
     
-    // Chama o método da árvore
     tree.imprimirEmOrdem();
 }
 
@@ -405,8 +407,8 @@ void Jogo::imprimeJogador(Score * jogador){
 void Jogo::buscarJogadorPorNome() {
     std::string nome;
     std::cout << "Digite o nome do jogador: ";
-    std::cin.ignore(); // Limpa o buffer antes de ler linha completa
-    std::getline(std::cin, nome); // Permite nomes com espaços
+    std::cin.ignore(); // limpa buffer antes de ler linha completa
+    std::getline(std::cin, nome); //para nomes com espaços
     
     Score* jogador = placar.buscarPorNome(nome);
     
