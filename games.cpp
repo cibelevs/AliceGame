@@ -140,27 +140,27 @@ void Jogo::jogar(Nodo* atual) {
 void Jogo::primeiroMenu() {
     int op;
     const std::string RESET = "\033[0m";
-    const std::string AZUL = "\033[34m";
+    const std::string Roxo = "\033[34m";
     const std::string VERDE = "\033[32m";
     const std::string AMARELO = "\033[33m";
     const std::string VERMELHO = "\033[31m";
     do {
 
 
-         // Desenho de flor decorativa
+         
       
-        std::cout << "\n" << AMARELO << "================================================"       << RESET << "\n";
-        std::cout << AZUL << "       ★ Bem-vindo ao Pais das Maravilhas ★ " << RESET <<       "\n";
-        std::cout << AMARELO         << "================================================"        << RESET << "\n\n";
+        std::cout << "\n" << AMARELO <<"                                               ================================================"       << RESET << "\n";
+        std::cout << Roxo <<           "                                                      ★ Bem-vindo ao Pais das Maravilhas ★    "          << RESET <<       "\n";
+        std::cout << AMARELO         <<"                                               ================================================"        << RESET << "\n\n";
  
 
 
 
-        std::cout << VERDE << " 1 - " << RESET << "Conhecer a historia do jogo\n";
-        std::cout << VERDE << " 2 - " << RESET << "Regras do jogo\n";
-        std::cout << VERDE << " 3 - " << RESET << "Verificar o Score do jogo\n";
-        std::cout << VERDE << " 4 - " << RESET << "Jogar\n";
-        std::cout << VERMELHO <<"-1 - " << RESET << "Sair\n" << RESET;
+        std::cout << VERDE << "                                              1 - " << RESET << "Conhecer a historia do jogo\n";
+        std::cout << VERDE << "                                              2 - " << RESET << "Regras do jogo\n";
+        std::cout << VERDE << "                                              3 - " << RESET << "Verificar o Score do jogo\n";
+        std::cout << VERDE << "                                              4 - " << RESET << "Jogar\n";
+        std::cout << VERMELHO <<"                                             -1 - " << RESET << "Sair\n" << RESET;
         std::cin >> op;
 
         if (entradaInvalida()) continue;
@@ -193,14 +193,20 @@ void Jogo:: submenuTecnico() {
     int opcao;
 
     const std::string RESET = "\033[0m";
+    const std::string Roxo = "\033[34m";
     const std::string VERDE = "\033[32m";
+    const std::string AMARELO = "\033[33m";
     const std::string VERMELHO = "\033[31m";
     do {
-        std::cout << VERDE << "1- " << RESET << " Mostrar lista que criou a arvore\n";
-        std::cout << VERDE << "2- " << RESET << " Listar arvore em ordem\n";
-        std::cout << VERDE << "3- " << RESET << "-Buscar jogador por nome\n";
-        std::cout << VERDE << "4- " << RESET << " Buscar jogador por número de jogos\n";
-        std::cout << VERMELHO << "5- " << RESET << " Voltar\nEscolha: \n" << RESET;;
+
+        std::cout << "\n" << AMARELO <<"                                           ================================================"       << RESET << "\n";
+        std::cout << Roxo <<           "                                                       ⚙ Informações Técnicas ⚙    "          << RESET <<       "\n";
+        std::cout << AMARELO         <<"                                           ================================================"        << RESET << "\n\n";
+        std::cout << VERDE << "                                          1- " << RESET << " Mostrar lista que criou a arvore\n";
+        std::cout << VERDE << "                                          2- " << RESET << " Listar arvore em ordem\n";
+        std::cout << VERDE << "                                          3- " << RESET << "Buscar jogador por nome\n";
+        std::cout << VERDE << "                                          4- " << RESET << " Buscar jogador por número de jogos\n";
+        std::cout << VERMELHO <<"                                          5- " << RESET << " Voltar\nEscolha: \n" << RESET;;
         std::cin >> opcao;
         if (entradaInvalida()) continue;
 
@@ -231,13 +237,19 @@ void Jogo:: submenuTecnico() {
 void Jogo::segundoMenu() {
     int opcao;
     const std::string RESET = "\033[0m";
+    const std::string Roxo = "\033[34m";
     const std::string VERDE = "\033[32m";
+    const std::string AMARELO = "\033[33m";
     const std::string VERMELHO = "\033[31m";
     do {
-        std::cout << VERDE << "1 - " << RESET << " Jogar novamente\n";
-        std::cout << VERDE << "2 - " << RESET << " Informações tecnicas\n";
-        std::cout << VERMELHO << "3 - " << RESET<< " Sair" << RESET ;
-        std::cout << "\nEscolha: ";
+
+        std::cout << "\n" << AMARELO <<"                                           ================================================"       << RESET << "\n";
+        std::cout << Roxo <<           "                                                               ◆ Opções ◆   "          << RESET <<       "\n";
+        std::cout << AMARELO         <<"                                           ================================================"        << RESET << "\n\n";
+        std::cout << VERDE << "                                          1 - " << RESET << " Jogar novamente\n";
+        std::cout << VERDE << "                                          2 - " << RESET << " Informações tecnicas\n";
+        std::cout << VERMELHO << "                                          3 - " << RESET<< " Sair" << RESET ;
+        std::cout << "               \nEscolha: ";
         std::cin >> opcao;
         if (entradaInvalida()) continue;
 
@@ -304,7 +316,7 @@ void ListaScore::listar() const {
     std::cout << "\n**** SCORE *****\n";
     Score* atual = inicio;
     while (atual) {
-        std::cout << "Nome: " << atual->nome
+        std::cout << " : " << atual->nome
                   << " | Jogos: " << atual->jogos
                   << " | Vitorias: " << atual->vitorias
                   << " | Derrotas: " << atual->derrotas << '\n';
@@ -373,11 +385,20 @@ void Jogo::listarArvoreEmOrdem() {
 
 void Jogo::imprimeJogador(Score * jogador){
     if (jogador != nullptr){
-        std::cout << "\n--- JOGADOR ENCONTRADO ---\n"
-                  << "Nome: " << jogador->nome << "\n"
-                  << "Jogos: " << jogador->jogos << "\n"
-                  << "Vitorias: " << jogador->vitorias << "\n"
-                  << "Derrotas: " << jogador->derrotas << "\n";
+        const std::string RESET = "\033[0m";
+        const std::string Roxo = "\033[34m";
+        const std::string VERDE = "\033[32m";
+        const std::string AMARELO = "\033[33m";
+        const std::string VERMELHO = "\033[31m";
+        const std::string AZUL_CIANO = "\033[38;5;123m";
+
+        
+        std::cout <<Roxo       << "                                                      🎮 JOGADOR ENCONTRADO 🎮             \n" << RESET;
+        
+        std::cout << AMARELO   << "                                                            Nome: " << jogador->nome     << "\n" << RESET;
+        std::cout << VERDE     << "                                                            Jogos: " << jogador->jogos    << "\n" << RESET;
+        std::cout << AZUL_CIANO<< "                                                            Vitórias: " << jogador->vitorias << "\n" << RESET;
+        std::cout << VERMELHO  << "                                                            Derrotas: " << jogador->derrotas << "\n" << RESET;
     }
 }
 
