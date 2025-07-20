@@ -150,7 +150,7 @@ void Jogo::primeiroMenu() {
          
       
         std::cout << "\n" << AMARELO <<"                                               ================================================"       << RESET << "\n";
-        std::cout << Roxo <<           "                                                      ★ Bem-vindo ao Pais das Maravilhas ★    "          << RESET <<       "\n";
+        std::cout << Roxo <<           "                                                       Bem-vindo ao Pais das Maravilhas     "          << RESET <<       "\n";
         std::cout << AMARELO         <<"                                               ================================================"        << RESET << "\n\n";
  
 
@@ -200,7 +200,7 @@ void Jogo::submenuTecnico() {
 
     do {
         std::cout << "\n" << AMARELO << "                                           ================================================" << RESET << "\n";
-        std::cout << Roxo   << "                                                       ⚙ Informacoes Tecnicas ⚙    " << RESET << "\n";
+        std::cout << Roxo   << "                                                        Informacoes Tecnicas     " << RESET << "\n";
         std::cout << AMARELO << "                                           ================================================" << RESET << "\n\n";
 
         std::cout << VERDE    << "                                          1- " << RESET << " Mostrar lista que criou a arvore\n";
@@ -255,7 +255,7 @@ void Jogo::segundoMenu() {
     do {
 
         std::cout << "\n" << AMARELO <<"                                           ================================================"       << RESET << "\n";
-        std::cout << Roxo <<           "                                                               ◆ Opções ◆   "          << RESET <<       "\n";
+        std::cout << Roxo <<           "                                                               Opcoes    "          << RESET <<       "\n";
         std::cout << AMARELO         <<"                                           ================================================"        << RESET << "\n\n";
         std::cout << VERDE << "                                          1 - " << RESET << " Jogar novamente\n";
         std::cout << VERDE << "                                          2 - " << RESET << " Informações tecnicas\n";
@@ -346,13 +346,33 @@ Score* ListaScore::buscarPorNome(const std::string& nome) const {
     return nullptr;
 }
 
-Score* ListaScore::buscarPorJogos(int jogos) const {
+void ListaScore::buscarPorJogos(int jogos) const {
     Score* atual = inicio;
+    bool encontrou = false;
+
     while (atual) {
-        if (atual->jogos == jogos) return atual;
+        if (atual->jogos == jogos) {
+            const std::string RESET = "\033[0m";
+            const std::string Roxo = "\033[34m";
+            const std::string VERDE = "\033[32m";
+            const std::string AMARELO = "\033[33m";
+            const std::string VERMELHO = "\033[31m";
+            const std::string AZUL_CIANO = "\033[38;5;123m";
+
+            std::cout << Roxo << "                                                       JOGADOR ENCONTRADO              \n" << RESET;
+            std::cout << AMARELO << "                                                            Nome: " << atual->nome << "\n" << RESET;
+            std::cout << VERDE << "                                                            Jogos: " << atual->jogos << "\n" << RESET;
+            std::cout << AZUL_CIANO << "                                                            Vitórias: " << atual->vitorias << "\n" << RESET;
+            std::cout << VERMELHO << "                                                            Derrotas: " << atual->derrotas << "\n" << RESET;
+
+            encontrou = true;
+        }
         atual = atual->prox;
     }
-    return nullptr;
+
+    if (!encontrou) {
+        std::cout << "Nenhum jogador encontrado com " << jogos << " jogos!\n";
+    }
 }
 
 Score* ListaScore::getInicio() const {
@@ -410,7 +430,7 @@ void Jogo::imprimeJogador(Score * jogador){
         const std::string AZUL_CIANO = "\033[38;5;123m";
 
         
-        std::cout <<Roxo       << "                                                      🎮 JOGADOR ENCONTRADO 🎮             \n" << RESET;
+        std::cout <<Roxo       << "                                                        JOGADOR ENCONTRADO              \n" << RESET;
         
         std::cout << AMARELO   << "                                                            Nome: " << jogador->nome     << "\n" << RESET;
         std::cout << VERDE     << "                                                            Jogos: " << jogador->jogos    << "\n" << RESET;
@@ -481,12 +501,6 @@ void Jogo::buscarJogadorPorJogos() {
     int jogos;
     std::cout << "Digite o numero de jogos: ";
     std::cin >> jogos;
-    
-    Score* jogador = placar.buscarPorJogos(jogos);
-    
-    if (jogador) {
-        imprimeJogador(jogador);
-    } else {
-        std::cout << "Nenhum jogador encontrado com " << jogos << " jogos!\n";
-    }
+
+    placar.buscarPorJogos(jogos); // Agora imprime todos diretamente
 }
