@@ -189,48 +189,59 @@ void Jogo::primeiroMenu() {
     } while (op != -1);
 }
 
-void Jogo:: submenuTecnico() {
+void Jogo::submenuTecnico() {
     int opcao;
 
-    const std::string RESET = "\033[0m";
-    const std::string Roxo = "\033[34m";
-    const std::string VERDE = "\033[32m";
-    const std::string AMARELO = "\033[33m";
-    const std::string VERMELHO = "\033[31m";
-    do {
+    const std::string RESET       = "\033[0m";
+    const std::string Roxo        = "\033[34m";
+    const std::string VERDE       = "\033[32m";
+    const std::string AMARELO     = "\033[33m";
+    const std::string VERMELHO    = "\033[31m";
 
-        std::cout << "\n" << AMARELO <<"                                           ================================================"       << RESET << "\n";
-        std::cout << Roxo <<           "                                                       ⚙ Informações Técnicas ⚙    "          << RESET <<       "\n";
-        std::cout << AMARELO         <<"                                           ================================================"        << RESET << "\n\n";
-        std::cout << VERDE << "                                          1- " << RESET << " Mostrar lista que criou a arvore\n";
-        std::cout << VERDE << "                                          2- " << RESET << " Listar arvore em ordem\n";
-        std::cout << VERDE << "                                          3- " << RESET << "Buscar jogador por nome\n";
-        std::cout << VERDE << "                                          4- " << RESET << " Buscar jogador por número de jogos\n";
-        std::cout << VERMELHO <<"                                          5- " << RESET << " Voltar\nEscolha: \n" << RESET;;
+    do {
+        std::cout << "\n" << AMARELO << "                                           ================================================" << RESET << "\n";
+        std::cout << Roxo   << "                                                       ⚙ Informacoes Tecnicas ⚙    " << RESET << "\n";
+        std::cout << AMARELO << "                                           ================================================" << RESET << "\n\n";
+
+        std::cout << VERDE    << "                                          1- " << RESET << " Mostrar lista que criou a arvore\n";
+        std::cout << VERDE    << "                                          2- " << RESET << " Listar arvore em ordem\n";
+        std::cout << VERDE    << "                                          3- " << RESET << " Buscar jogador por nome\n";
+        std::cout << VERDE    << "                                          4- " << RESET << " Buscar jogador por numero de jogos\n";
+        std::cout << VERDE    << "                                          5- " << RESET << " Jogador com mais vitorias\n";
+        std::cout << VERDE    << "                                          6- " << RESET << " Jogador com mais derrotas\n";
+        std::cout << VERMELHO << "                                          7- " << RESET << " Voltar\n";
+        std::cout << AMARELO  << "\nEscolha: " << RESET;
+
         std::cin >> opcao;
         if (entradaInvalida()) continue;
 
         switch(opcao) {
             case 1:
-            mostrarListaOriginal();
+                mostrarListaOriginal();
                 break;
             case 2:
-            listarArvoreEmOrdem();
+                listarArvoreEmOrdem();
                 break;
             case 3:
-             buscarJogadorPorNome();
+                buscarJogadorPorNome();
                 break;
             case 4:
-             buscarJogadorPorJogos();
+                buscarJogadorPorJogos();
                 break;
             case 5:
+                buscarMaiorVencedor(placar.getInicio());
+                break;
+            case 6:
+                buscarMaiorPerdedor(placar.getInicio());
+                break;
+            case 7:
                 std::cout << "Voltando...\n";
                 break;
             default:
                 std::cout << "Opcao invalida!\n";
                 break;
         }
-    } while(opcao != 5);
+    } while(opcao != 7);
 }
 
 
@@ -344,6 +355,10 @@ Score* ListaScore::buscarPorJogos(int jogos) const {
     return nullptr;
 }
 
+Score* ListaScore::getInicio() const {
+    return inicio;
+}
+
 //******* SUBMENU INFORMACOES TECNICAS ********* 
 //mostrar lista original, apresentar arvore em ordem
 
@@ -399,7 +414,7 @@ void Jogo::imprimeJogador(Score * jogador){
         
         std::cout << AMARELO   << "                                                            Nome: " << jogador->nome     << "\n" << RESET;
         std::cout << VERDE     << "                                                            Jogos: " << jogador->jogos    << "\n" << RESET;
-        std::cout << AZUL_CIANO<< "                                                            Vitórias: " << jogador->vitorias << "\n" << RESET;
+        std::cout << AZUL_CIANO<< "                                                            Vitorias: " << jogador->vitorias << "\n" << RESET;
         std::cout << VERMELHO  << "                                                            Derrotas: " << jogador->derrotas << "\n" << RESET;
     }
 }
@@ -418,6 +433,49 @@ void Jogo::buscarJogadorPorNome() {
         std::cout << "Jogador não encontrado!\n";
     }
 }
+
+void Jogo::buscarMaiorVencedor(Score* inicio) {
+    if (!inicio) {
+        std::cout << "Lista de jogadores vazia.\n";
+        return;
+    }
+
+    Score* maior = inicio;
+    Score* atual = inicio->prox;
+
+    while (atual) {
+        if (atual->vitorias > maior->vitorias) {
+            maior = atual;
+        }
+        atual = atual->prox;
+    }
+
+    std::cout << "\n Jogador com mais vitorias:\n";
+    imprimeJogador(maior);
+}
+
+void Jogo::buscarMaiorPerdedor(Score* inicio) {
+    if (!inicio) {
+        std::cout << "Lista de jogadores vazia.\n";
+        return;
+    }
+
+    Score* pior = inicio;
+    Score* atual = inicio->prox;
+
+    while (atual) {
+        if (atual->derrotas > pior->derrotas) {
+            pior = atual;
+        }
+        atual = atual->prox;
+    }
+
+    std::cout << "\n Jogador com mais derrotas:\n";
+    imprimeJogador(pior);
+}
+
+
+
 
 void Jogo::buscarJogadorPorJogos() {
     int jogos;
