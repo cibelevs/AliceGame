@@ -65,7 +65,7 @@ private:
 public:
     ListaScore();
     void adicionarOuAtualizar(const std::string& nome, bool venceu);
-    void listar() const;
+    void mostrarTodos() const;
     void buscarPorJogos(int jogos) const;
     Score* buscarPorNome(const std::string& nome) const;  
     Score* getInicio() const;

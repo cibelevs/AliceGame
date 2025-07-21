@@ -173,7 +173,7 @@ void Jogo::primeiroMenu() {
                 historiaJogo("regras.txt");
                 break;
             case 3:
-                placar.listar();
+            placar.mostrarTodos();
                 break;
             case 4:
                 iniciar();  // Começa o jogo
@@ -324,17 +324,29 @@ void ListaScore::adicionarOuAtualizar(const std::string& nome, bool venceu) {
     }
 }
 
-void ListaScore::listar() const {
-    std::cout << "\n**** SCORE *****\n";
+void ListaScore::mostrarTodos() const {
     Score* atual = inicio;
+    if (!atual) {
+        std::cout << "Nenhum jogador registrado.\n";
+        return;
+    }
+
     while (atual) {
-        std::cout << " : " << atual->nome
-                  << " | Jogos: " << atual->jogos
-                  << " | Vitorias: " << atual->vitorias
-                  << " | Derrotas: " << atual->derrotas << '\n';
+        const std::string RESET = "\033[0m";
+        const std::string Roxo = "\033[34m";
+        const std::string VERDE = "\033[32m";
+        const std::string AMARELO = "\033[33m";
+        const std::string VERMELHO = "\033[31m";
+        const std::string AZUL_CIANO = "\033[38;5;123m";
+
+        std::cout << Roxo << "                                           JOGADOR \n" << RESET;
+        std::cout << AMARELO   << "                                          Nome: " << atual->nome     << "\n" << RESET;
+        std::cout << VERDE     << "                                          Jogos: " << atual->jogos    << "\n" << RESET;
+        std::cout << AZUL_CIANO<< "                                          Vitórias: " << atual->vitorias << "\n" << RESET;
+        std::cout << VERMELHO  << "                                          Derrotas: " << atual->derrotas << "\n\n" << RESET;
+
         atual = atual->prox;
     }
-    std::cout << "--------------\n";
 }
 
 Score* ListaScore::buscarPorNome(const std::string& nome) const {
