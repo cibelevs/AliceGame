@@ -99,9 +99,16 @@ void Jogo::jogar(Nodo* atual) {
         } else if (op == 'e' || op == 'E') {
             std::string nome;
             std::cout << "\nVoce desistiu da jornada. Sera registrado como derrota.\n";
-            std::cout << "Digite seu nome: ";
-            std::cin.ignore();
-            std::getline(std::cin, nome);
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // limpa buffer
+            do {
+                std::cout << "\nDigite seu nome: ";
+                std::getline(std::cin, nome);
+
+                if (placar.existeJogador(nome)) {
+                    std::cout << "Esse nome ja existe! Escolha outro.\n";
+                }
+            } while (placar.existeJogador(nome));
+
 
             placar.adicionarOuAtualizar(nome, false); // derrota
             std::cout << "\nEncerrando a jornada...\n";
@@ -115,8 +122,15 @@ void Jogo::jogar(Nodo* atual) {
         std::cout << "\nFim da aventura: " << atual->text << "\n";
         // Aqui pede o nome do jogador:
         std::string nome;
-        std::cout << "\nDigite seu nome: ";
-        std::cin >> nome;
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // limpar buffer
+        do {
+            std::cout << "\nDigite seu nome: ";
+            std::getline(std::cin, nome);
+
+            if (placar.existeJogador(nome)) {
+                std::cout << "Esse nome ja existe! Escolha outro.\n";
+            }
+        } while (placar.existeJogador(nome));
 
         // se venceu ou perdeu automaticamente
         std::string textoFinal = atual->text;
@@ -325,16 +339,16 @@ void ListaScore::adicionarOuAtualizar(const std::string& nome, bool venceu) {
 }
 
 void ListaScore::listar() const {
-    std::cout << "\n**** SCORE *****\n";
+    std::cout << "\n ************* SCORE ***************\n";
     Score* atual = inicio;
     while (atual) {
-        std::cout << " : " << atual->nome
-                  << " | Jogos: " << atual->jogos
-                  << " | Vitorias: " << atual->vitorias
-                  << " | Derrotas: " << atual->derrotas << '\n';
+        std::cout << "           | " << atual->nome
+                  << "           | Jogos: " << atual->jogos
+                  << "           | Vitorias: " << atual->vitorias
+                  << "           | Derrotas: " << atual->derrotas << '\n';
         atual = atual->prox;
     }
-    std::cout << "--------------\n";
+    std::cout << "------------------------------------------\n";
 }
 
 Score* ListaScore::buscarPorNome(const std::string& nome) const {
@@ -354,6 +368,18 @@ Score* ListaScore::buscarPorJogos(int jogos) const {
     }
     return nullptr;
 }
+
+bool ListaScore::existeJogador(const std::string& nome) const {
+    Score* atual = inicio;
+    while (atual) {
+        if (atual->nome == nome) {
+            return true;
+        }
+        atual = atual->prox;
+    }
+    return false;
+}
+
 
 Score* ListaScore::getInicio() const {
     return inicio;
