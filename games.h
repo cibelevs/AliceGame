@@ -68,6 +68,7 @@ public:
     void mostrarTodos() const;
     void buscarPorJogos(int jogos) const;
     Score* buscarPorNome(const std::string& nome) const;  
+    bool existeJogador(const std::string& nome) const;
     Score* getInicio() const;
 
 };

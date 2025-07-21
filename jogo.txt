@@ -7,12 +7,12 @@
 240 230 D O chapeleiro propoe caminhar pela estrada das rosas. Pretende segui-lo?
 005 030 E rei apontou para voce e ordenou que voce saia do pais das maravilhas. Nessa hora, voce acordou e se esqueceu de tudo. #perdeu
 055 030 D Rainha te convida para um jogo de cartas, mas as cartas sao vivas. Aceita jogar?
-075 085 E Ele te expulsa e assopra a fumaca em voce. Voce acorda e nao se lembra de nada que aconteceu.
+075 085 E Ele te expulsa e assopra a fumaca em voce. Voce acorda e nao se lembra de nada que aconteceu.#perdeu
 090 085 D Voce acertou a charada! Deseja descobrir seu destino?
 115 125 E Eles comecam a brigar(culpar um ao outro) na sua frente. Deseja separa-los?
 195 125 D Os irmaos se tornam fieis a voce. Eles te garantem que vai ficar em seguranca. Confiar neles?
 230 240 E Voce vai andando em outra direcao e fica presa na floresta! #perdeu
-250 240 D Durante a caminhada, encontrou um frasco de bebida escrito “beba-me”. Deseja beber?
+250 240 D Durante a caminhada, encontrou um frasco de bebida escrito beba-me. Deseja beber?
 040 055 E A rainha ordena que voce deve se depor! O gato cheshire aparece discretamente e te propoe ajuda. Aceitar?
 060 055 D No ultimo momento, voce percebe que pode deixar a rainha ganhar ou levar o jogo. Deseja agradar a rainha?
 088 090 E O largato descepcionado te faz despertar do seu sonho. #venceu
@@ -41,7 +41,7 @@
 124 123 D Voce se torna parte do Pais das Maravilhas para sempre. #venceu
 132 186 E Voces seguem na floresta e encontram uma cabana. Deseja passar a noite nesta cabana?
 190 186 D Voces chegam ao castelo da rainha branca e ela recepciona bem voces, conta historias interessantes e oferece uma estadia temporaria. Deseja aceitar?
-047 048 E A rainha fica revoltada e resolve te trancar no calabouco ate a sua morte.
+047 048 E A rainha fica revoltada e resolve te trancar no calabouco ate a sua morte. #perdeu
 050 048 D A rainha entao se cansa de voce e te deixa em paz. Gostaria de se revoltar contra a rainha?
 131 132 E Voces caminham pelo escuro e acidentalmente pisam em um cogumelo alucinogeno e seu mental lhe trai. Infelizmente voce dorme para sempre tendo alucinacoes :( #perdeu
 179 132 D Voces acordam com barulho de coisas quebrando e ao abrir os olhos se deparam com a lebre maluca. Deseja continuar na cabana?
