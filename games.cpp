@@ -90,26 +90,16 @@ Nodo* Arvore::getRaiz() const { return raiz; }
 void Jogo::jogar(Nodo* atual) {
     while (atual && (atual->esq || atual->dir)) {
         std::cout << "\n" << atual->text << "\n(Digite 's' para SIM, 'n' para NAO, e 'e' para encerrar a sua jornada): ";
-        char op; std::cin >> op;
+        char op;
+        std::cin >> op;
 
-       if (op == 's' || op == 'S') {
+        if (op == 's' || op == 'S') {
             atual = atual->dir;
         } else if (op == 'n' || op == 'N') {
             atual = atual->esq;
         } else if (op == 'e' || op == 'E') {
-            std::string nome;
             std::cout << "\nVoce desistiu da jornada. Sera registrado como derrota.\n";
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // limpa buffer
-            do {
-                std::cout << "\nDigite seu nome: ";
-                std::getline(std::cin, nome);
-
-                if (placar.existeJogador(nome)) {
-                    std::cout << "Esse nome ja existe! Escolha outro.\n";
-                }
-            } while (placar.existeJogador(nome));
-
-            placar.adicionarOuAtualizar(nome, false); // derrota
+            placar.adicionarOuAtualizar(nomeJogador, false);
             std::cout << "\nEncerrando a jornada...\n";
             return;
         } else {
@@ -119,35 +109,52 @@ void Jogo::jogar(Nodo* atual) {
 
     if (atual) {
         std::cout << "\nFim da aventura: " << atual->text << "\n";
-        // Aqui pede o nome do jogador:
-        std::string nome;
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // limpar buffer
-        do {
-            std::cout << "\nDigite seu nome: ";
-            std::getline(std::cin, nome);
 
-            if (placar.existeJogador(nome)) {
-                std::cout << "Esse nome ja existe! Escolha outro.\n";
-            }
-        } while (placar.existeJogador(nome));
-
-        // se venceu ou perdeu automaticamente
         std::string textoFinal = atual->text;
-        std::transform(textoFinal.begin(), textoFinal.end(), textoFinal.begin(), ::tolower); // deixa tudo minúsculo
+        std::transform(textoFinal.begin(), textoFinal.end(), textoFinal.begin(), ::tolower);
 
         bool venceu = textoFinal.find("#venceu") != std::string::npos;
         bool perdeu = textoFinal.find("#perdeu") != std::string::npos;
 
         if (venceu || perdeu) {
-            placar.adicionarOuAtualizar(nome, venceu); 
-        } 
-        else {
+            placar.adicionarOuAtualizar(nomeJogador, venceu);
+        } else {
             std::cout << "Nao foi possivel determinar se venceu ou perdeu.\n";
         }
-        
     } else {
         std::cout << "\n Opção invalida!\n";
     }
+}
+
+void Jogo::escolherJogador() {
+    std::string nome;
+    char opcao;
+    bool nomeValido = false;
+
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // <- Adicionado aqui
+
+    do {
+        std::cout << "Digite seu nome: ";
+        std::getline(std::cin, nome);
+
+        if (placar.existeJogador(nome)) {
+            std::cout << "Jogador encontrado. Deseja continuar com esse jogador? (s/n): ";
+            std::cin >> opcao;
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // limpar buffer novamente
+
+            if (opcao == 's' || opcao == 'S') {
+                nomeJogador = nome;
+                jogadorJaRegistrado = true;
+                nomeValido = true;
+            } else {
+                std::cout << "Digite um novo nome.\n";
+            }
+        } else {
+            nomeJogador = nome;
+            jogadorJaRegistrado = true;
+            nomeValido = true;
+        }
+    } while (!nomeValido);
 }
 
 void Jogo::primeiroMenu() {
@@ -157,40 +164,37 @@ void Jogo::primeiroMenu() {
     const std::string VERDE = "\033[32m";
     const std::string AMARELO = "\033[33m";
     const std::string VERMELHO = "\033[31m";
+
     do {
-
-
-         
-      
-        std::cout << "\n" << AMARELO <<"                                               ================================================"       << RESET << "\n";
-        std::cout << Roxo <<           "                                                       Bem-vindo ao Pais das Maravilhas     "          << RESET <<       "\n";
-        std::cout << AMARELO         <<"                                               ================================================"        << RESET << "\n\n";
- 
-
-
+        std::cout << "\n" << AMARELO <<"                                               ================================================" << RESET << "\n";
+        std::cout << Roxo   << "                                                       Bem-vindo ao Pais das Maravilhas     " << RESET << "\n";
+        std::cout << AMARELO <<"                                               ================================================" << RESET << "\n\n";
 
         std::cout << VERDE << "                                              1 - " << RESET << "Conhecer a historia do jogo\n";
         std::cout << VERDE << "                                              2 - " << RESET << "Regras do jogo\n";
         std::cout << VERDE << "                                              3 - " << RESET << "Verificar o Score do jogo\n";
         std::cout << VERDE << "                                              4 - " << RESET << "Jogar\n";
         std::cout << VERMELHO <<"                                             -1 - " << RESET << "Sair\n" << RESET;
+        std::cout<<"Digite uma opcao: ";
         std::cin >> op;
 
         if (entradaInvalida()) continue;
 
         switch (op) {
             case 1:
-                historiaJogo("historia.txt");  // Exemplo de arquivo
+                historiaJogo("historia.txt");
                 break;
             case 2:
                 historiaJogo("regras.txt");
                 break;
             case 3:
-            placar.mostrarTodos();
+                placar.mostrarTodos();
                 break;
             case 4:
-                iniciar();  // Começa o jogo
-                segundoMenu();
+                escolherJogador();         // <- só pede o nome agora
+                iniciar();                 // inicia o jogo com a árvore carregada
+                segundoMenu();             // submenu com "jogar novamente"
+                jogadorJaRegistrado = false; // <- força novo nome quando voltar ao menu principal
                 break;
             case -1:
                 std::cout << "Saindo do jogo...\n";
@@ -223,8 +227,7 @@ void Jogo::submenuTecnico() {
         std::cout << VERDE    << "                                          5- " << RESET << " Jogador com mais vitorias\n";
         std::cout << VERDE    << "                                          6- " << RESET << " Jogador com mais derrotas\n";
         std::cout << VERMELHO << "                                          7- " << RESET << " Voltar\n";
-        std::cout << AMARELO  << "\nEscolha: " << RESET;
-
+        std::cout<<"Digite uma opcao: ";
         std::cin >> opcao;
         if (entradaInvalida()) continue;
 
@@ -271,9 +274,9 @@ void Jogo::segundoMenu() {
         std::cout << Roxo <<           "                                                               Opcoes    "          << RESET <<       "\n";
         std::cout << AMARELO         <<"                                           ================================================"        << RESET << "\n\n";
         std::cout << VERDE << "                                          1 - " << RESET << " Jogar novamente\n";
-        std::cout << VERDE << "                                          2 - " << RESET << " Informações tecnicas\n";
+        std::cout << VERDE << "                                          2 - " << RESET << " Informacoes tecnicas\n";
         std::cout << VERMELHO << "                                          3 - " << RESET<< " Sair" << RESET ;
-        std::cout << "               \nEscolha: ";
+        std::cout<<"Digite uma opcao: ";
         std::cin >> opcao;
         if (entradaInvalida()) continue;
 
@@ -306,12 +309,20 @@ void Jogo::historiaJogo(const std::string& arq) {
         std::cout << linha << '\n';
 }
 
-void Jogo::iniciar() {
+void Jogo::carregarArvore() {
     Lista list;
     list.lerArquivoLista("jogo.txt");   
     Arvore tree;
     tree.construirArvore(list.getInicio());
-    jogar(tree.getRaiz());
+    raiz = tree.getRaiz();
+}
+
+
+void Jogo::iniciar() {
+     if (raiz == nullptr) {
+        carregarArvore(); // só carrega se ainda não tiver carregado
+    }
+    jogar(raiz);
 }
 
 // *********** SCORE ***************
@@ -400,7 +411,7 @@ void ListaScore::buscarPorJogos(int jogos) const {
             std::cout << Roxo << "                                                       JOGADOR ENCONTRADO              \n" << RESET;
             std::cout << AMARELO << "                                                            Nome: " << atual->nome << "\n" << RESET;
             std::cout << VERDE << "                                                            Jogos: " << atual->jogos << "\n" << RESET;
-            std::cout << AZUL_CIANO << "                                                            Vitórias: " << atual->vitorias << "\n" << RESET;
+            std::cout << AZUL_CIANO << "                                                            Vitorias: " << atual->vitorias << "\n" << RESET;
             std::cout << VERMELHO << "                                                            Derrotas: " << atual->derrotas << "\n" << RESET;
 
             encontrou = true;

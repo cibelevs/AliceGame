@@ -58,7 +58,7 @@
 149 150 E Voce foi capturada e a rainha simplesmente te odiou e as ultimas palavras que voce escuta e ... CORTEM A CABECA! #perdeu
 177 150 D Voce se esconde, mas os gemeos e a lebre sao capturados. Deseja tentar intervir?
 180 181 E Voce nao abre o pergaminho e volta a caminhar na floresta e derrepente um monstro do exercito da rainha surge... e infelizmente voce nao teve um fim agradavel. #perdeu
-183 181 D Dentro do pergaminho dizia “Dentro desta floresta ha um espelho que pode conceder seu desejo mais oculto”. Deseja procurar pelo espelho?
+183 181 D Dentro do pergaminho dizia: Dentro desta floresta ha um espelho que pode conceder seu desejo mais oculto. Deseja procurar pelo espelho?
 170 177 E Voce novamente esta sozinha. Deseja encontrar os outros animais que rejeitou no inicio na tentativa de salva-los?
 178 177 D Infelizmente suas acoes nao foram recompensadas e foi capturada junto com eles, mas diferente deles a rainha te achou banal demais para merecer seu afeto e te condenou a prisao eterna. #perdeu
 182 183 E Voce caminha pela floresta sem rumo e encontra um labirinto sem fim e infelizmente fica perdida pra sempre. #perdeu

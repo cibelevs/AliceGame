@@ -77,13 +77,16 @@ public:
 class Jogo {
 private:
     ListaScore placar;
-
-      
+    Nodo* raiz = nullptr;
+    std::string nomeJogador;
+    bool jogadorJaRegistrado = false;
 
 public:
     void iniciar();
     void jogar(Nodo* atual);
+    void carregarArvore();
     void historiaJogo(const std::string& arq);
+    void escolherJogador();
     void segundoMenu();
     void primeiroMenu();
     void submenuTecnico();
