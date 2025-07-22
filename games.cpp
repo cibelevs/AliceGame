@@ -275,7 +275,7 @@ void Jogo::segundoMenu() {
         std::cout << AMARELO         <<"                                           ================================================"        << RESET << "\n\n";
         std::cout << VERDE << "                                          1 - " << RESET << " Jogar novamente\n";
         std::cout << VERDE << "                                          2 - " << RESET << " Informacoes tecnicas\n";
-        std::cout << VERMELHO << "                                          3 - " << RESET<< " Sair" << RESET ;
+        std::cout << VERMELHO << "                                          3 - " << RESET<< " Sair\n" << RESET ;
         std::cout<<"Digite uma opcao: ";
         std::cin >> opcao;
         if (entradaInvalida()) continue;
